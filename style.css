@@ -4,12 +4,11 @@
     --card-back-color: #00F4BF;
 }
 
-
-
-
 body {
-    background-color: url('flashcard-imagens/img/bg-desktop.webp');
-    font-family: Bai Jamjuree;
+    background-image: url('flashcard-imagens/img/bg-desktop.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 #container {
@@ -21,22 +20,20 @@ body {
 }
 
 .cartao {
-
-    margin: 1rem 1rem;
+    margin: 1rem;
     height: 24rem;
     flex-grow: 1;
-    flex-basis: calc(33% - 6rem);
-
+    flex-basis: calc(33% - 2rem);
+    perspective: 1000px; /* Adicionado para permitir efeito 3D */
 }
 
-.cartao__conteudo{
+.cartao__conteudo {
     background-color: var(--card-front-color);
     text-align: center;
-   /* background-color: aquamarine;*/
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 300ms ease-in-out;
-
+    position: relative;
 }
 
 .cartao__conteudo h3 {
@@ -45,16 +42,16 @@ body {
     text-align: left;
     padding: 0.5rem;
     position: absolute;
-    margin: 0.6rem;
+    top: 0.6rem;
+    left: 0.6rem;
     border-radius: 0.6rem;
     font-size: 1vw;
     backface-visibility: hidden;
 }
 
 .cartao__conteudo p {
-    margin-top: 1rem;
-    padding: 2rem;
     margin-top: 2.8rem;
+    padding: 2rem;
 }
 
 .cartao__conteudo__pergunta p {
@@ -71,16 +68,17 @@ body {
     transform: rotateY(180deg);
 }
 
-
 .cartao__conteudo__pergunta,
 .cartao__conteudo__resposta {
     backface-visibility: hidden;
     position: absolute;
     height: 100%;
     width: 100%;
-
 }
 
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+}
 
 footer {
     background-color: black;
@@ -96,13 +94,3 @@ footer p {
     font-size: 0.6rem;
     margin-top: 0.5rem;
 }
-
-.cartao__conteudo__resposta {
-    transform: rotateY(180deg);
-  
-}
-
-
-
-
-
